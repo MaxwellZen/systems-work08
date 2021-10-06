@@ -9,3 +9,6 @@ main.o: main.c mystring.h
 
 run:
 	./main
+
+clean:
+	rm *.o
