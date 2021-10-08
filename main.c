@@ -62,7 +62,7 @@ int main() {
 	printf("\t\t[standard]:\t[%d]\n", strcmp("abc", "abc") );
 	printf("\t\t[mine]:\t\t[%d]\n", mystrcmp("abc", "abc") );
 
-	printf("\nMy stress tester verdict (len, cat, ncpy, cmp, chr):\n");
+	printf("\nMy random tester verdict (len, cat, ncpy, cmp, chr):\n");
 	int failed = 0;
 	for (int test = 0; test < 1000; test++) {
 		srand(time(NULL) + test*31415926);
@@ -103,30 +103,39 @@ int main() {
 	else printf("ur cool B)\n");
 
 	printf("\nRandom tests (str, split):\n");
-	
+
 	printf("\nTesting strstr:\n");
 
 	char s[100] = "congratsyoufoundit\0";
 	char t[100] = "fou\0";
-	printf("s: [%s]\nt: [%s]\n", s, t);
+	printf("\ns: [%s]\nt: [%s]\n", s, t);
 	printf("Mine:     [%p]\nStandard: [%p]\n", mystrstr(s, t), strstr(s, t));
 	printf("Mine:     [%s]\nStandard: [%s]\n", mystrstr(s, t), strstr(s, t));
 
 	strcpy(s, "lookingfornothing");
 	strcpy(t, "");
-	printf("s: [%s]\nt: [%s]\n", s, t);
+	printf("\ns: [%s]\nt: [%s]\n", s, t);
 	printf("Mine:     [%p]\nStandard: [%p]\n", mystrstr(s, t), strstr(s, t));
 	printf("Mine:     [%s]\nStandard: [%s]\n", mystrstr(s, t), strstr(s, t));
 
 	strcpy(s, "cantfindit");
 	strcpy(t, "nowhere");
-	printf("s: [%s]\nt: [%s]\n", s, t);
+	printf("\ns: [%s]\nt: [%s]\n", s, t);
 	printf("Mine:     [%p]\nStandard: [%p]\n", mystrstr(s, t), strstr(s, t));
 	printf("Mine:     [%s]\nStandard: [%s]\n", mystrstr(s, t), strstr(s, t));
 
 	printf("\nTesting Split:\n");
+
 	strcpy(s, "word,word,word");
-	printf("Before split: [%s]\n", s);
+	printf("\nBefore split: [%s]\n", s);
+	printf("Comma split:  [%s]\n", mysplit(s, ','));
+
+	strcpy(s, "nocommashere");
+	printf("\nBefore split: [%s]\n", s);
+	printf("Comma split:  [%s]\n", mysplit(s, ','));
+
+	strcpy(s, ",comma at the beginning");
+	printf("\nBefore split: [%s]\n", s);
 	printf("Comma split:  [%s]\n", mysplit(s, ','));
 
 	return 0;
