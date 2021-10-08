@@ -23,8 +23,10 @@ char * mystrncpy( char *dest, char *source, int n) {
 	int i, zero=0;
 	for (i = 0; i < n; i++) {
 		if (zero) *dest=0;
-		else *dest = *source;
-		if (*source==0) zero=1;
+		else {
+			*dest = *source;
+			if (*source==0) zero=1;
+		}
 		dest++; source++;
 	}
 	return copy;
