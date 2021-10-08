@@ -103,11 +103,29 @@ int main() {
 	else printf("ur cool B)\n");
 
 	printf("\nRandom tests (str, split):\n");
+	
+	printf("\nTesting strstr:\n");
+
 	char s[100] = "congratsyoufoundit\0";
 	char t[100] = "fou\0";
-	printf("\nTesting strstr:\nMine:     [%p]\nStandard: [%p]\n", mystrstr(s, t), strstr(s, t));
+	printf("s: [%s]\nt: [%s]\n", s, t);
+	printf("Mine:     [%p]\nStandard: [%p]\n", mystrstr(s, t), strstr(s, t));
+	printf("Mine:     [%s]\nStandard: [%s]\n", mystrstr(s, t), strstr(s, t));
+
+	strcpy(s, "lookingfornothing");
+	strcpy(t, "");
+	printf("s: [%s]\nt: [%s]\n", s, t);
+	printf("Mine:     [%p]\nStandard: [%p]\n", mystrstr(s, t), strstr(s, t));
+	printf("Mine:     [%s]\nStandard: [%s]\n", mystrstr(s, t), strstr(s, t));
+
+	strcpy(s, "cantfindit");
+	strcpy(t, "nowhere");
+	printf("s: [%s]\nt: [%s]\n", s, t);
+	printf("Mine:     [%p]\nStandard: [%p]\n", mystrstr(s, t), strstr(s, t));
+	printf("Mine:     [%s]\nStandard: [%s]\n", mystrstr(s, t), strstr(s, t));
+
 	printf("\nTesting Split:\n");
-	strcpy(s, "word,word,word\0");
+	strcpy(s, "word,word,word");
 	printf("Before split: [%s]\n", s);
 	printf("Comma split:  [%s]\n", mysplit(s, ','));
 
